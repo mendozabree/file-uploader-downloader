@@ -20,11 +20,11 @@ class App < Sinatra::Base
     file_name = params[file_object.first]["filename"]
     file_type = params[file_object.first]["type"]
     file_path = params[file_object.first]["tempfile"].path
-    begin
-      file = @service.upload_file(file_name, file_type, file_path)
-      { message: "upload successful", preview_url: view_upload(file.id) }.to_json
-    rescue => ex
-      halt 400, {error: ex}.to_json
-    end
+    # begin
+    file = @service.upload_file(file_name, file_type, file_path)
+    { message: "upload successful", preview_url: view_upload(file.id) }.to_json
+    # rescue => ex
+    #   halt 400, {error: ex}.to_json
+    # end
   end
 end
